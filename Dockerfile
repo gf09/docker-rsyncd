@@ -13,7 +13,7 @@ EXPOSE 873
 
 # Add a healthcheck to verify rsync daemon is responsive
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-  CMD nc -z localhost 873 || exit 1
+  CMD nc.openbsd -z localhost 873 || exit 1
 
 # Run rsync daemon in foreground with your config
 CMD ["rsync", "--daemon", "--no-detach", "--config=/etc/rsyncd.conf"]
