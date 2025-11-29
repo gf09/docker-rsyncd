@@ -1,8 +1,8 @@
 FROM debian:stable-slim
 
-# Install rsync with iconv support and netcat for healthcheck
+# Install rsync with iconv support and netcat-openbsd for healthcheck
 RUN apt-get update && \
-    apt-get install -y rsync netcat && \
+    apt-get install -y rsync netcat-openbsd && \
     rm -rf /var/lib/apt/lists/*
 
 # Copy your rsyncd.conf into the image
